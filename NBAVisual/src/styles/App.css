@@ -1,0 +1,13 @@
+/*Style sheet for App components, see App.js in components directory */
+
+.App {
+	text-align: center;
+}
+
+.App-title {
+	font-size: 1.5em;
+}
+
+.App-intro {
+	font-size: large;
+}

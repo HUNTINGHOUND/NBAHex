@@ -12,6 +12,8 @@
   "author": "CodeMix",
   "license": "ISC",
   "dependencies": {
+    "d3-shotchart": "0.0.2",
+    "nba": "^4.8.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "^2.1.5"

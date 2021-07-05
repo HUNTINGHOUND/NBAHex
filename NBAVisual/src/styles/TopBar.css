@@ -1,0 +1,21 @@
+/*Style sheet for Topbar, see TopBar.js in the components directory*/
+
+
+/*Style for the logo*/
+.App-logo {
+	height: 35px;
+	float: left;
+	padding-left: 40px;
+}
+
+
+/*Style for the header of the TopBar*/
+.App-header {
+	background-color: #194eb5;
+	height: 55px;
+	color: white;
+	display: flex;
+	align-items: center;
+	box-shadow: -1px 0 5px 0 #194eb5;
+	margin-bottom: 70px;
+}
