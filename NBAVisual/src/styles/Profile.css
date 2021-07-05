@@ -1,6 +1,6 @@
 /* Style sheet for the Profile component, see Profile.js in component directory */
 
-profile {
+.profile {
 	width: 200px;
 	background: #ccc;
 	font-size: 0.8em;

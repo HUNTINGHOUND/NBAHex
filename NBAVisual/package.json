@@ -1,7 +1,7 @@
 {
-  "name": "react-hello-world",
+  "name": "NBAVisual",
   "version": "1.0.0",
-  "description": "React Hello World",
+  "description": "NBAVisual",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -12,7 +12,9 @@
   "author": "CodeMix",
   "license": "ISC",
   "dependencies": {
+    "d3": "^7.0.0",
     "d3-shotchart": "0.0.2",
+    "d3-tip": "^0.9.1",
     "nba": "^4.8.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

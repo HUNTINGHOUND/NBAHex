@@ -10,7 +10,7 @@ export class TopBar extends React.Component {
 		//For now, render the header and the logo
 		return (
 			<header className="App-header">
-				<img src={logo} classname="App-logo" alt="logo" />
+				<img src={logo} className="App-logo" alt="logo" />
 			</header>
 		)
 	}

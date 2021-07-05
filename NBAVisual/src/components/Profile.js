@@ -10,7 +10,7 @@ export class Profile extends React.Component {
 	render() {
 		//get stats from props
 		const {
-			teamAbbrviation,
+			teamAbbreviation,
 			teamCity,
 			teamName,
 			playerName,
@@ -20,6 +20,7 @@ export class Profile extends React.Component {
 			pts, reb, ast, pie
 		} = this.props.playerInfo;
 
+
 		//We want to render the player name, profile pic and all the stats
 		return (
 			<div className="profile">
@@ -28,7 +29,7 @@ export class Profile extends React.Component {
 				{/* render image */}
 				<img
 					className="profile-pic"
-					src={`${PROFILE_PIC_URL_PREFIX}${playerId}.png`}
+					src={`${PROFILE_PIC_URL_PREFIX}/${playerId}.png`}
 					alt="Profile"
 				/>
 
@@ -41,7 +42,7 @@ export class Profile extends React.Component {
 
 				<img
 					className="team-logo"
-					src={`${TEAM_LOGO_URL_PREFIX}/${teamAbbrviation}_logo.svg`}
+					src={`${TEAM_LOGO_URL_PREFIX}/${teamAbbreviation}_logo.svg`}
 					alt="Team"
 				/>
 
