@@ -5,7 +5,7 @@ import React from 'react';
 import logo from '../assets/images/nba-logo.jpg';
 
 //class declaration for the topbar, we want to export it so it can be used in App.js
-export class TopNavBar extends React.Component {
+export class TopBar extends React.Component {
 	render() {
 		//For now, render the header and the logo
 		return (

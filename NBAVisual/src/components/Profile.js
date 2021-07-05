@@ -6,9 +6,6 @@ import {PROFILE_PIC_URL_PREFIX, TEAM_LOGO_URL_PREFIX} from '../constants';
 
 //Class declaration of the Profile component, export to App.js
 export class Profile extends React.Component {
-	constructor(props) {
-		super(props);
-	}
 
 	render() {
 		//get stats from props
@@ -44,7 +41,7 @@ export class Profile extends React.Component {
 
 				<img
 					className="team-logo"
-					src={`${TEAM_PIC_URL_PREFIX}/${teamAbbrviation}_logo.svg`}
+					src={`${TEAM_LOGO_URL_PREFIX}/${teamAbbrviation}_logo.svg`}
 					alt="Team"
 				/>
 

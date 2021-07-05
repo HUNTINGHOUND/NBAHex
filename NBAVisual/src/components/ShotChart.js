@@ -3,7 +3,7 @@
 //imports
 import React from 'react';
 import nba from 'nba';
-import * as d3 from `d3`; //https://github.com/d3
+import * as d3 from 'd3'; //https://github.com/d3
 import {hexbin} from 'd3-hexbin';
 import {court, shots} from 'd3-shotchart'; //https://github.com/mc-buckets/d3-shotchart
 import PropTypes from 'prop-types';
@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 window.d3_hexbin = {hexbin : hexbin} //workaround library problem
 
 //Declaration for the shortchart component class
-export class ShortChart extends React.Component {
+export class ShotChart extends React.Component {
 
 	//proptypes for type checking
 	static propTypes = {
