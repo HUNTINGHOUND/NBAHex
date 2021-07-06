@@ -325,7 +325,7 @@ function shots() {
                     .attr("cy", function(d) { return yScale(d.y); })
                     .attr("r", 0)
                     .on('mouseover', function(d) { if (toolTips) {tool_tip.show(d, this);} })
-                    .on('mouseout', function(d) { if (toolTips) {tool_tip.show(d, this);} })
+                    .on('mouseout', function(d) { if (toolTips) {tool_tip.hide(d, this);} })
                     .transition().duration(1000)
                     .attr("r", .5);
                 
