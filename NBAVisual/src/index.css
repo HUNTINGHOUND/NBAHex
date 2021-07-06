@@ -6,6 +6,7 @@
 @import 'styles/Profile.css';
 @import 'styles/Main.css';
 @import 'styles/DataViewContainer.css';
+@import 'styles/SearchBar.css';
 @import '../node_modules/antd/dist/antd.css';
 
 body {

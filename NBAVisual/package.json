@@ -12,6 +12,7 @@
   "author": "CodeMix",
   "license": "ISC",
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
     "antd": "^4.16.6",
     "d3": "^7.0.0",
     "d3-shotchart": "0.0.2",
