@@ -5,6 +5,8 @@
 @import 'styles/ShotChart.css';
 @import 'styles/Profile.css';
 @import 'styles/Main.css';
+@import 'styles/DataViewContainer.css';
+@import '../node_modules/antd/dist/antd.css';
 
 body {
 	margin: 0;

@@ -2,7 +2,7 @@
 
 //imports
 import React from 'react';
-import {ShotChart} from './ShotChart';
+import {DataViewContainer} from './DataViewContainer';
 import {Profile} from './Profile';
 import nba from 'nba'; //https://github.com/bttmly/nba
 
@@ -16,8 +16,9 @@ export class Main extends React.Component {
 		depending on which player the user searches for.
 		*/
 		this.state = {
-			playerId: 2544,
-			playerInfo: {}
+			playerId: nba.findPlayer('Stephen Curry').playerId,
+			playerInfo: {},
+			teamAbbreviation: 'GSW'
 		}
 	}
 
@@ -30,6 +31,7 @@ export class Main extends React.Component {
 				/*Important to note that stats.nba.com endpoints are poorly documented
 				and so is the libary. To find these values one must do some testing
 				through the console*/
+				console.log(info);
 				const playerInfo = Object.assign({},
 					info.commonPlayerInfo[0], info.playerHeadlineStats[0]);
 				
@@ -38,7 +40,7 @@ export class Main extends React.Component {
 				this.setState({playerInfo});
 			}
 		).catch((e) => {
-			//catch errors
+			//catch and log errors
 			console.log(e);
 		});
 	}
@@ -48,7 +50,7 @@ export class Main extends React.Component {
 		return (
 			<div className="main">
 				<Profile playerInfo={this.state.playerInfo} />
-				<ShotChart playerId={this.state.playerId} />
+				<DataViewContainer playerId={this.state.playerId}/>
 			</div>
 		)
 	}

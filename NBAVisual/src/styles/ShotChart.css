@@ -5,7 +5,8 @@
 /*Selects id=shot-chart*/
 #shot-chart {
 	width: 100%;
-	margin: auto;
+  margin: auto;
+  margin-top: -50px;
 }
 
 /* shotchart court styles*/

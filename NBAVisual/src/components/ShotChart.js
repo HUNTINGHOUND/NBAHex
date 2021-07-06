@@ -13,7 +13,9 @@ window.d3_hexbin = {hexbin : hexbin} //workaround library problem
 
 
 
-/* The follow code is from here: https://github.com/mc-buckets/d3-shotchart ================================*/
+/* The follow code is from here: https://github.com/mc-buckets/d3-shotchart.
+Due to the fact that this library is quite old and not updated for a while
+some functions are broken and no longer works for current d3 version.*/
 
 // SCALES USED TO INVERT COURT Y COORDS AND MAP SHOOTING PERCENTAGES OF BINS TO A FILL COLOR 
 var yScale = d3.scaleLinear().domain([0, 47]).rangeRound([47, 0]);
@@ -304,7 +306,7 @@ function shots() {
                       .attr("class", "d3-tip")
                       .offset([-8, 0])
                       .html(function(d) { 
-                            return d.shot_distance + "' " + d.action_type; 
+                            return d.originalTarget.__data__.shot_distance + "' " + d.originalTarget.__data__.action_type; 
                         });
                     
                     shotsGroup.call(tool_tip);
@@ -503,7 +505,13 @@ export class ShotChart extends React.Component {
 	//proptypes for type checking
 	static propTypes = {
 		//require player id
-		playerId: PropTypes.number.isRequired
+		playerId: PropTypes.number.isRequired,
+		//mincount must be number
+		minCount: PropTypes.number,
+		//charttype must be a string
+		chartType: PropTypes.string,
+		//option for displaying tip must be a boolean
+		displayTooltip: PropTypes.bool
 	}
 
 	componentDidUpdate() {
@@ -523,14 +531,20 @@ export class ShotChart extends React.Component {
 				shot_made_flag: shot.shotMadeFlag,
 			}));
 
+			//log the shots
+			console.log(final_shots);
 			//select the type of chart
 			const courtSelection = d3.select('#shot-chart');
+			courtSelection.html('');
 			//select the dimension of the court
 			const chart_court = court().width(500);
 
 			//settings for each shot
 			const chart_shots = 
-			shots().shotRenderThreshold(2).displayToolTips(true).displayType("hexbin");
+			shots()
+				.shotRenderThreshold(this.props.minCount)
+				.displayToolTips(this.props.displayTooltip)
+				.displayType(this.props.chartType);
 
 			//create and configure the chart
 			courtSelection.call(chart_court);

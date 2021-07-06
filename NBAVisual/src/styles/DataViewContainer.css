@@ -1,0 +1,9 @@
+/*Style sheet for the DataViewContainer component, see DataViewContainer.js in components director*/
+
+.data-view {
+	width: 550px;
+}
+
+.filters {
+	margin-left: 75px;
+}

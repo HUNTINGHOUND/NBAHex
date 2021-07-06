@@ -12,12 +12,14 @@
   "author": "CodeMix",
   "license": "ISC",
   "dependencies": {
+    "antd": "^4.16.6",
     "d3": "^7.0.0",
     "d3-shotchart": "0.0.2",
     "d3-tip": "^0.9.1",
+    "lodash": "^4.17.21",
     "nba": "^4.8.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-scripts": "^2.1.5"
   },
   "browserslist": [
