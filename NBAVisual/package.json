@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "NBAVisual",
   "main": "index.js",
+  "homepage": "https://huntinghound.github.io/NBAHex/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -28,5 +29,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
 }
