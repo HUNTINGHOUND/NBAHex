@@ -6,6 +6,7 @@ import nba from 'nba';
 import * as d3 from 'd3'; //https://github.com/d3
 import d3Tip from 'd3-tip';
 import {hexbin} from 'd3-hexbin';
+import * as d3Col from 'd3-collection'
 import PropTypes from 'prop-types';
 import { timeParse } from 'd3';
 
@@ -243,7 +244,7 @@ function shots() {
                 .y(function(d) { return yScale(d.key[1]); });        
     
     var _nestShotsByLocation = function(data) {
-        var nestedData = d3.nest()
+        var nestedData = d3Col.nest()
             .key(function(d) {
                 return [d.x, d.y];
             })

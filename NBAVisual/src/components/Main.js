@@ -24,23 +24,45 @@ export class Main extends React.Component {
 
 	//function for loading playerInfo
 	loadPlayerInfo = (playerName) => {
-		nba.stats.playerInfo({ PlayerID: nba.findPlayer(playerName).playerId }).then( //return promise
-			(info) => {
-				/*Important to note that stats.nba.com endpoints are poorly documented
-				and so is the libary. To find these values one must do some testing
-				through the console*/
-				console.log(info);
-				const playerInfo = Object.assign({},
-					info.commonPlayerInfo[0], info.playerHeadlineStats[0]);
+		let xmlHttp = new XMLHttpRequest();
+		const url = "http://localhost:8080"
 
-				//Log the values and set state
-				console.log('final player info', playerInfo);
-				this.setState({ playerInfo });
+		xmlHttp.open("GET", url, true);
+
+		xmlHttp.setRequestHeader("Command", "CommonPlayerInfo");
+		xmlHttp.setRequestHeader("PlayerID", nba.findPlayer(playerName).playerId.toString());
+
+		console.log("Sending request");
+
+		xmlHttp.send();
+
+
+		xmlHttp.onreadystatechange = () => {
+			if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+				console.log(xmlHttp.responseText);
+
+				let info = JSON.parse(xmlHttp.responseText);
+				console.log("Raw response");
+				console.log(info);
+
+				let data = {};
+
+				for(let i = 0; i < info.resultSets.length; i++) {
+					data[info.resultSets[i].name] = {};
+					let headers = info.resultSets[i].headers;
+					let value = info.resultSets[i].rowSet[0];
+
+					for(let j = 0; j < headers.length; j++) {
+						data[info.resultSets[i].name][headers[j]] = value[j];
+					}
+				}
+
+				const playerInfo = Object.assign({},
+					data.CommonPlayerInfo, data.PlayerHeadlineStats);
+				console.log("Final player info", playerInfo);
+				this.setState({playerInfo});
 			}
-		).catch((e) => {
-			//catch and log errors
-			console.log(e);
-		});
+		}
 	}
 
 
@@ -62,7 +84,7 @@ export class Main extends React.Component {
 				<SearchBar handleSelectPlayer={this.handleSelectPlayer} />
 				<div className="player">
 					<Profile playerInfo={this.state.playerInfo} />
-					<DataViewContainer playerId={this.state.playerInfo.playerId} />
+					<DataViewContainer playerId={this.state.playerInfo.PLAYER_ID} />
 				</div>
 			</div>
 		)
