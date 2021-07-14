@@ -1,4 +1,4 @@
-from nba_api.stats.endpoints import commonplayerinfo
+from nba_api.stats.endpoints import commonplayerinfo, shotchartdetail
 import socket
 from http.server import BaseHTTPRequestHandler
 from io import BytesIO
@@ -43,18 +43,19 @@ while True:
 
     print(request_text)
 
-    print(request.error_code)
-    print(request.command)
-    print(request.headers.keys())
-    print(request.headers["Host"])
-
     data = ""
-    if request.headers["Command"] == "CommonPlayerInfo":
+    if request.headers["Want"] == "CommonPlayerInfo":
         playerid = int(request.headers["PlayerID"])
         data = commonplayerinfo.CommonPlayerInfo(player_id=playerid).get_response()
+    elif request.headers["Want"] == "Shot":
+        playerid = int(request.headers["PlayerID"])
+        teamid = 0
+        data = shotchartdetail.ShotChartDetail(player_id=playerid, team_id=teamid,
+                                               season_type_all_star="Regular Season", season_nullable="2015-16",
+                                               context_measure_simple="FGM", ).get_response()
 
     # Send HTTP response
-    response = 'HTTP/1.0 200 OK\n\n' + data
+    response = 'HTTP/1.0 200 OK\nAccess-Control-Allow-Origin: *\nAccess-Control-Allow-Headers: *\n\n' + data
     client_connection.sendall(response.encode())
     client_connection.close()
 

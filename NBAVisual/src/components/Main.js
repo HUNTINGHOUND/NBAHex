@@ -29,7 +29,7 @@ export class Main extends React.Component {
 
 		xmlHttp.open("GET", url, true);
 
-		xmlHttp.setRequestHeader("Command", "CommonPlayerInfo");
+		xmlHttp.setRequestHeader("Want", "CommonPlayerInfo");
 		xmlHttp.setRequestHeader("PlayerID", nba.findPlayer(playerName).playerId.toString());
 
 		console.log("Sending request");
@@ -84,7 +84,7 @@ export class Main extends React.Component {
 				<SearchBar handleSelectPlayer={this.handleSelectPlayer} />
 				<div className="player">
 					<Profile playerInfo={this.state.playerInfo} />
-					<DataViewContainer playerId={this.state.playerInfo.PLAYER_ID} />
+					<DataViewContainer playerId={this.state.playerInfo.PLAYER_ID} teamId={this.state.playerInfo.TEAM_ID} />
 				</div>
 			</div>
 		)

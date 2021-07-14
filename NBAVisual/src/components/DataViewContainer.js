@@ -48,6 +48,7 @@ export class DataViewContainer extends React.Component {
 				{/* Render the shotchart and pass down vital information */}
 				<ShotChart
 					playerId={this.props.playerId}
+					teamId ={this.props.teamId}
 					minCount={this.state.minCount}
 					chartType={this.state.chartType}
 					displayTooltip={this.state.displayTooltip}
