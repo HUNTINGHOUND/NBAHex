@@ -6,4 +6,4 @@ For some reason [stats.nba.com](stats.nba.com) has recently starting to check th
 
 
 ## Custom Python server
-The main reason why this app don't work without the extensions is because modern browser secruity forbidden changing the origin and referrer header fields in HTTP requests. Therefore, I have written a simple python server that you can open and deploy on localhost:8080. The app will send request over to this server which will act like a middle man so that we can change the origin and referer header fields.
+The main reason why this app don't work without the extensions is because modern browser secruity forbidden changing the origin and referrer header fields in HTTP requests. Therefore, I have written a simple python server that you can open and deploy on localhost:8080. The app will send request over to this server which will act like a middle man(proxy) so that we can change the origin and referer header fields.
